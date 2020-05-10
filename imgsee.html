@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>景函画程</title>
+		<meta http-equiv="imagetoolbar" content="no" />
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html {
+				overflow: hidden;
+			}
+
+			body {
+				margin: 0px;
+				padding: 0px;
+				background: #000;
+				width: 100%;
+				height: 100%;
+			}
+
+			#imageFlow {
+				position: absolute;
+				width: 100%;
+				height: 80%;
+				left: 0%;
+				top: 10%;
+				background: #000;
+			}
+
+			#imageFlow .diapo {
+				position: absolute;
+				left: -2000px;
+				cursor: pointer;
+				-ms-interpolation-mode: nearest-neighbor;
+			}
+
+			#imageFlow .link {
+				border: dotted #fff 1px;
+				margin-left: -1px;
+				margin-bottom: -1px;
+			}
+
+			#imageFlow .bank {
+				visibility: hidden;
+			}
+
+			#imageFlow .top {
+				position: absolute;
+				width: 100%;
+				height: 40%;
+				background: #181818;
+			}
+
+			#imageFlow .text {
+				position: absolute;
+				left: 0px;
+				width: 100%;
+				bottom: 16%;
+				text-align: center;
+				color: #FFF;
+				font-family: sans-serif;
+				z-index: 1000;
+			}
+
+			#imageFlow .title {
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			#imageFlow .legend {
+				font-size: 12px;
+			}
+
+			#imageFlow .scrollbar {
+				position: absolute;
+				left: 10%;
+				bottom: 10%;
+				width: 80%;
+				height: 16px;
+				z-index: 1000;
+			}
+
+			#imageFlow .track {
+				position: absolute;
+				left: 1%;
+				width: 98%;
+				height: 16px;
+				filter: alpha(opacity=30);
+				opacity: 0.3;
+			}
+
+			#imageFlow .arrow-left {
+				position: absolute;
+			}
+
+			#imageFlow .arrow-right {
+				position: absolute;
+				right: 0px;
+			}
+
+			#imageFlow .bar {
+				position: absolute;
+				height: 16px;
+				left: 25px;
+			}
+		</style>
+
+		<script type="text/javascript">
+
+
+
+		</script>
+	</head>
+
+	<body>
+		<div id="imageFlow">
+			<div class="top"></div>
+			<div class="bank">
+				<a v-for="(item,index) in picList" :key="index" :rel="item.path" title="" target="_blank" :href="item.path">{{item.title}}</a>
+			</div>
+
+			<div class="text">
+				<div class="title">Loading</div>
+				<div class="legend">Please wait...</div>
+			</div>
+			<div class="scrollbar">
+				<img class="track" src="images/sb.gif" alt="" />
+				<img class="arrow-left" src="images/sl.gif" alt="" />
+				<img class="arrow-right" src="images/sr.gif" alt="" />
+				<img class="bar" src="images/sc.gif" alt="" />
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el: '#imageFlow',
+				data: {
+					w1: [
+						
+						{
+							path: 'images/w1-c3-002.jpg',
+							title: '光大银行'
+						},
+						{
+							path: 'images/w1-c1-001.jpg',
+							title: '融创管家App'
+						},
+						{
+							path: 'images/w1-c1-002.jpg',
+							title: '融创管家App'
+						},
+						{
+							path: 'images/w1-c1-003.jpg',
+							title: '融创归心App'
+						},
+						{
+							path: 'images/w1-c1-004.jpg',
+							title: '融创供应商协同平台'
+						},
+						{
+							path: 'images/w1-c2-001.jpg',
+							title: '显示屏查询终端'
+						},
+						{
+							path: 'images/w1-c2-002.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-003.jpg',
+							title: '硬件公司网站'
+						},
+						{
+							path: 'images/w1-c2-004.jpg',
+							title: '系统架构图'
+						},
+						{
+							path: 'images/w1-c2-005.jpg',
+							title: '焦煤集团网站'
+						},
+						{
+							path: 'images/w1-c2-006.jpg',
+							title: '系统登录界面'
+						},
+						{
+							path: 'images/w1-c2-007.jpg',
+							title: '办公自动化管理系统'
+						},
+						{
+							path: 'images/w1-c2-008.jpg',
+							title: '数字化管理平台'
+						},
+						{
+							path: 'images/w1-c2-009.jpg',
+							title: '物资供应管理系统'
+						},
+						{
+							path: 'images/w1-c2-010.jpg',
+							title: '人员定位系统'
+						},
+						{
+							path: 'images/w1-c2-011.jpg',
+							title: '人员定位系统'
+						},
+						{
+							path: 'images/w1-c2-012.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-013.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-014.jpg',
+							title: '安全监测系统'
+						},
+						{
+							path: 'images/w1-c2-015.jpg',
+							title: '数字管理平台'
+						},
+						{
+							path: 'images/w1-c2-016.jpg',
+							title: '考勤定位系统'
+						},
+						{
+							path: 'images/w1-c2-017.jpg',
+							title: '生产调度系统'
+						},
+						{
+							path: 'images/w1-c2-018.jpg',
+							title: '安全监测联网'
+						},
+						{
+							path: 'images/w1-c2-019.jpg',
+							title: '综合管理系统'
+						},
+						{
+							path: 'images/w1-c2-020.jpg',
+							title: '感知平台'
+						},
+						{
+							path: 'images/w1-c2-021.jpg',
+							title: '远程管理系统'
+						},
+						{
+							path: 'images/w1-c2-022.jpg',
+							title: '贺卡·邀请函·内刊·登录'
+						},
+						{
+							path: 'images/w1-c3-001.jpg',
+							title: '贷款融资'
+						},
+						{
+							path: 'images/w1-c5-001.jpg',
+							title: '电商网站'
+						},
+						{
+							path: 'images/w1-c6-001.jpg',
+							title: '地质大学实验室考试系统'
+						},
+						{
+							path: 'images/w1-c6-002.jpg',
+							title: '安顺党建平台'
+						},
+
+					],
+					w2: [{
+							path: 'images/w2-c1-001.jpg',
+							title: '融创服务宣传'
+						},
+						{
+							path: 'images/w2-c1-002.jpg',
+							title: '万科电商'
+						},
+						{
+							path: 'images/w2-c1-003.jpg',
+							title: '万科协同平台'
+						},
+						{
+							path: 'images/w2-c2-001.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-002.jpg',
+							title: '富力通展板'
+						},
+						{
+							path: 'images/w2-c2-003.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-004.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-005.jpg',
+							title: '榆林煤业网站'
+						},
+						{
+							path: 'images/w2-c2-006.jpg',
+							title: '华亭煤业集团'
+						},
+						{
+							path: 'images/w2-c2-007.jpg',
+							title: '富力通软件网站'
+						},
+						{
+							path: 'images/w2-c2-008.jpg',
+							title: '国投大同'
+						},
+						{
+							path: 'images/w2-c2-009.jpg',
+							title: '华亭煤业'
+						},
+						{
+							path: 'images/w2-c2-010.jpg',
+							title: '神话蒙西煤化'
+						},
+						{
+							path: 'images/w2-c2-011.jpg',
+							title: '华亭党建'
+						},
+						{
+							path: 'images/w2-c4-001.jpg',
+							title: '软件·硬件·宣传'
+						},
+						{
+							path: 'images/w2-c4-002.jpg',
+							title: '华煤工会'
+						},
+						{
+							path: 'images/w2-c4-005.jpg',
+							title: '网站合集'
+						},
+						{
+							path: 'images/w2-c5-001.jpg',
+							title: 'IBM采购'
+						},
+						{
+							path: 'images/w2-c5-002.jpg',
+							title: '兴业云·工业云'
+						},
+						{
+							path: 'images/w2-c3-001.jpg',
+							title: '数据服务'
+						},
+						{
+							path: 'images/w2-c3-002.jpg',
+							title: '应用服务'
+						},
+
+					],
+					w3: [
+						
+						{
+							path: 'images/w3-c3-002.jpg',
+							title: '关联交易监控平台'
+						},
+						{
+							path: 'images/w3-c3-003.jpg',
+							title: '客户分析'
+						},
+						{
+							path: 'images/w3-c1-001.jpg',
+							title: '融创管理系统'
+						},
+						{
+							path: 'images/w3-c1-002.jpg',
+							title: '融创合同履约'
+						},
+						{
+							path: 'images/w3-c1-003.jpg',
+							title: '融创系统'
+						},
+						{
+							path: 'images/w3-c1-004.jpg',
+							title: '万科供应商平台'
+						},
+						{
+							path: 'images/w3-c2-001.jpg',
+							title: '华电国际决策支持系统'
+						},
+						{
+							path: 'images/w3-c2-002.jpg',
+							title: '中电投采购系统'
+						},
+						{
+							path: 'images/w3-c2-003.jpg',
+							title: '工作管理平台'
+						},
+						{
+							path: 'images/w3-c2-004.jpg',
+							title: '安全监测联网'
+						},
+						{
+							path: 'images/w3-c2-005.jpg',
+							title: '办公登录'
+						},
+						{
+							path: 'images/w3-c2-006.jpg',
+							title: '运销管理'
+						},
+						{
+							path: 'images/w3-c3-001.jpg',
+							title: '智达方通界面'
+						},
+						{
+							path: 'images/w3-c4-001.jpg',
+							title: '数据可视化'
+						},
+						{
+							path: 'images/w3-c5-001.jpg',
+							title: '兴业云·工业云'
+						},
+						{
+							path: 'images/w3-c5-002.jpg',
+							title: '华润供应商'
+						},
+						{
+							path: 'images/w3-c5-003.jpg',
+							title: '合集'
+						},
+						{
+							path: 'images/w3-c6-001.jpg',
+							title: '融创运营看板'
+						},
+						{
+							path: 'images/w3-c6-002.jpg',
+							title: '管家中台'
+						}
+					],
+					c1: [{
+							path: 'images/w3-c1-001.jpg',
+							title: '融创管理系统'
+						},
+						{
+							path: 'images/w3-c1-002.jpg',
+							title: '融创合同履约'
+						},
+						{
+							path: 'images/w3-c1-003.jpg',
+							title: '融创系统'
+						},
+						{
+							path: 'images/w3-c1-004.jpg',
+							title: '万科供应商平台'
+						},
+						{
+							path: 'images/w2-c1-001.jpg',
+							title: '融创服务宣传'
+						},
+						{
+							path: 'images/w2-c1-002.jpg',
+							title: '万科电商'
+						},
+						{
+							path: 'images/w2-c1-003.jpg',
+							title: '万科协同平台'
+						},
+						{
+							path: 'images/w1-c1-001.jpg',
+							title: '融创管家App'
+						},
+						{
+							path: 'images/w1-c1-002.jpg',
+							title: '融创管家App'
+						},
+						{
+							path: 'images/w1-c1-003.jpg',
+							title: '融创归心App'
+						},
+						{
+							path: 'images/w1-c1-004.jpg',
+							title: '融创供应商协同平台'
+						},
+					],
+					c2: [{
+							path: 'images/w3-c2-001.jpg',
+							title: '华电国际决策支持系统'
+						},
+						{
+							path: 'images/w3-c2-002.jpg',
+							title: '中电投采购系统'
+						},
+						{
+							path: 'images/w3-c2-003.jpg',
+							title: '工作管理平台'
+						},
+						{
+							path: 'images/w3-c2-004.jpg',
+							title: '安全监测联网'
+						},
+						{
+							path: 'images/w3-c2-005.jpg',
+							title: '办公登录'
+						},
+						{
+							path: 'images/w3-c2-006.jpg',
+							title: '运销管理'
+						},
+						{
+							path: 'images/w2-c2-001.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-002.jpg',
+							title: '富力通展板'
+						},
+						{
+							path: 'images/w2-c2-003.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-004.jpg',
+							title: '富力通宣传册'
+						},
+						{
+							path: 'images/w2-c2-005.jpg',
+							title: '榆林煤业网站'
+						},
+						{
+							path: 'images/w2-c2-006.jpg',
+							title: '华亭煤业集团'
+						},
+						{
+							path: 'images/w2-c2-007.jpg',
+							title: '富力通软件网站'
+						},
+						{
+							path: 'images/w2-c2-008.jpg',
+							title: '国投大同'
+						},
+						{
+							path: 'images/w2-c2-009.jpg',
+							title: '华亭煤业'
+						},
+						{
+							path: 'images/w2-c2-010.jpg',
+							title: '神话蒙西煤化'
+						},
+						{
+							path: 'images/w2-c2-011.jpg',
+							title: '华亭党建'
+						},
+						{
+							path: 'images/w1-c2-001.jpg',
+							title: '显示屏查询终端'
+						},
+						{
+							path: 'images/w1-c2-002.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-003.jpg',
+							title: '硬件公司网站'
+						},
+						{
+							path: 'images/w1-c2-004.jpg',
+							title: '系统架构图'
+						},
+						{
+							path: 'images/w1-c2-005.jpg',
+							title: '焦煤集团网站'
+						},
+						{
+							path: 'images/w1-c2-006.jpg',
+							title: '系统登录界面'
+						},
+						{
+							path: 'images/w1-c2-007.jpg',
+							title: '办公自动化管理系统'
+						},
+						{
+							path: 'images/w1-c2-008.jpg',
+							title: '数字化管理平台'
+						},
+						{
+							path: 'images/w1-c2-009.jpg',
+							title: '物资供应管理系统'
+						},
+						{
+							path: 'images/w1-c2-010.jpg',
+							title: '人员定位系统'
+						},
+						{
+							path: 'images/w1-c2-011.jpg',
+							title: '人员定位系统'
+						},
+						{
+							path: 'images/w1-c2-012.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-013.jpg',
+							title: '矿井智能管理平台'
+						},
+						{
+							path: 'images/w1-c2-014.jpg',
+							title: '安全监测系统'
+						},
+						{
+							path: 'images/w1-c2-015.jpg',
+							title: '数字管理平台'
+						},
+						{
+							path: 'images/w1-c2-016.jpg',
+							title: '考勤定位系统'
+						},
+						{
+							path: 'images/w1-c2-017.jpg',
+							title: '生产调度系统'
+						},
+						{
+							path: 'images/w1-c2-018.jpg',
+							title: '安全监测联网'
+						},
+						{
+							path: 'images/w1-c2-019.jpg',
+							title: '综合管理系统'
+						},
+						{
+							path: 'images/w1-c2-020.jpg',
+							title: '感知平台'
+						},
+						{
+							path: 'images/w1-c2-021.jpg',
+							title: '远程管理系统'
+						},
+						{
+							path: 'images/w1-c2-022.jpg',
+							title: '贺卡·邀请函·内刊·登录'
+						},
+					],
+					c3: [{
+							path: 'images/w3-c3-001.jpg',
+							title: '智达方通界面'
+						},
+						{
+							path: 'images/w1-c3-001.jpg',
+							title: '贷款融资'
+						},
+						{
+							path: 'images/w1-c3-002.jpg',
+							title: '光大银行'
+						},
+						{
+							path: 'images/w2-c3-001.jpg',
+							title: '数据服务'
+						},
+						{
+							path: 'images/w2-c3-002.jpg',
+							title: '应用服务'
+						},
+						{
+							path: 'images/w3-c3-002.jpg',
+							title: '关联交易监控平台'
+						},
+						{
+							path: 'images/w3-c3-003.jpg',
+							title: '客户分析'
+						},
+					],
+					c4: [{
+							path: 'images/w3-c4-001.jpg',
+							title: '数据可视化'
+						},
+						{
+							path: 'images/w2-c4-001.jpg',
+							title: '软件·硬件·宣传'
+						},
+						{
+							path: 'images/w2-c4-002.jpg',
+							title: '华煤工会'
+						},
+						{
+							path: 'images/w2-c4-005.jpg',
+							title: '网站合集'
+						},
+					],
+					c5: [{
+							path: 'images/w1-c5-001.jpg',
+							title: '电商网站'
+						},
+						{
+							path: 'images/w2-c5-001.jpg',
+							title: 'IBM采购'
+						},
+						{
+							path: 'images/w2-c5-002.jpg',
+							title: '兴业云·工业云'
+						},
+						{
+							path: 'images/w3-c5-001.jpg',
+							title: '兴业云·工业云'
+						},
+						{
+							path: 'images/w3-c5-002.jpg',
+							title: '华润供应商'
+						},
+						{
+							path: 'images/w3-c5-003.jpg',
+							title: '合集'
+						},
+					],
+					c6: [{
+							path: 'images/w3-c6-001.jpg',
+							title: '融创运营看板'
+						},
+						{
+							path: 'images/w3-c6-002.jpg',
+							title: '管家中台'
+						},
+						{
+							path: 'images/w1-c6-001.jpg',
+							title: '地质大学实验室考试系统'
+						},
+						{
+							path: 'images/w1-c6-002.jpg',
+							title: '安顺党建平台'
+						},
+					],
+					picList:[]
+
+				},
+				computed:{
+					
+				},
+				methods: {
+					cc(){
+						var imf = function() {
+							var lf = 0;
+							var instances = [];
+						
+							function getElementsByClass(object, tag, className) {
+								var o = object.getElementsByTagName(tag);
+								for (var i = 0, n = o.length, ret = []; i < n; i++)
+									if (o[i].className == className) ret.push(o[i]);
+								if (ret.length == 1) ret = ret[0];
+								return ret;
+							}
+						
+							function addEvent(o, e, f) {
+								if (window.addEventListener) o.addEventListener(e, f, false);
+								else if (window.attachEvent) r = o.attachEvent('on' + e, f);
+							}
+						
+							function createReflexion(cont, img) {
+								var flx = false;
+								if (document.createElement("canvas").getContext) {
+									flx = document.createElement("canvas");
+									flx.width = img.width;
+									flx.height = img.height;
+									var context = flx.getContext("2d");
+									context.translate(0, img.height);
+									context.scale(1, -1);
+									context.drawImage(img, 0, 0, img.width, img.height);
+									context.globalCompositeOperation = "destination-out";
+									var gradient = context.createLinearGradient(0, 0, 0, img.height * 2);
+									gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+									gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
+									context.fillStyle = gradient;
+									context.fillRect(0, 0, img.width, img.height * 2);
+								} else {
+									/* ---- DXImageTransform ---- */
+									flx = document.createElement('img');
+									flx.src = img.src;
+									flx.style.filter = 'flipv progid:DXImageTransform.Microsoft.Alpha(' +
+										'opacity=50, style=1, finishOpacity=0, startx=0, starty=0, finishx=0, finishy=' +
+										(img.height * .25) + ')';
+								}
+								/* ---- insert Reflexion ---- */
+								flx.style.position = 'absolute';
+								flx.style.left = '-2000px';
+								cont.appendChild(flx);
+								return flx;
+							}
+							/* //////////// ==== ImageFlow Constructor ==== //////////// */
+							function ImageFlow(oCont, size, zoom, border) {
+								this.diapos = [];
+								this.scr = false;
+								this.size = size;
+								this.zoom = zoom;
+								this.bdw = border;
+								this.oCont = oCont;
+								this.oc = document.getElementById(oCont);
+								this.scrollbar = getElementsByClass(this.oc, 'div', 'scrollbar');
+								this.text = getElementsByClass(this.oc, 'div', 'text');
+								this.title = getElementsByClass(this.text, 'div', 'title');
+								this.legend = getElementsByClass(this.text, 'div', 'legend');
+								this.bar = getElementsByClass(this.oc, 'img', 'bar');
+								this.arL = getElementsByClass(this.oc, 'img', 'arrow-left');
+								this.arR = getElementsByClass(this.oc, 'img', 'arrow-right');
+								this.bw = this.bar.width;
+								this.alw = this.arL.width - 5;
+								this.arw = this.arR.width - 5;
+								this.bar.parent = this.oc.parent = this;
+								this.arL.parent = this.arR.parent = this;
+								this.view = this.back = -1;
+								this.resize();
+								this.oc.onselectstart = function() {
+									return false;
+								}
+								/* ---- create images ---- */
+								var img = getElementsByClass(this.oc, 'div', 'bank').getElementsByTagName('a');
+								this.NF = img.length;
+								for (var i = 0, o; o = img[i]; i++) {
+									this.diapos[i] = new Diapo(this, i,
+										o.rel,
+										o.title || '- ' + i + ' -',
+										o.innerHTML || o.rel,
+										o.href || '',
+										o.target || '_self'
+									);
+								}
+								/* ==== add mouse wheel events ==== */
+								if (window.addEventListener)
+									this.oc.addEventListener('DOMMouseScroll', function(e) {
+										this.parent.scroll(-e.detail);
+									}, false);
+								else this.oc.onmousewheel = function() {
+									this.parent.scroll(event.wheelDelta);
+								}
+								/* ==== scrollbar drag N drop ==== */
+								this.bar.onmousedown = function(e) {
+									if (!e) e = window.event;
+									var scl = e.screenX - this.offsetLeft;
+									var self = this.parent;
+									/* ---- move bar ---- */
+									this.parent.oc.onmousemove = function(e) {
+										if (!e) e = window.event;
+										self.bar.style.left = Math.round(Math.min((self.ws - self.arw - self.bw), Math.max(self.alw, e.screenX -
+											scl))) + 'px';
+										self.view = Math.round(((e.screenX - scl)) / (self.ws - self.alw - self.arw - self.bw) * self.NF);
+										if (self.view != self.back) self.calc();
+										return false;
+									}
+									/* ---- release scrollbar ---- */
+									this.parent.oc.onmouseup = function(e) {
+										self.oc.onmousemove = null;
+										return false;
+									}
+									return false;
+								}
+								/* ==== right arrow ==== */
+								this.arR.onclick = this.arR.ondblclick = function() {
+									if (this.parent.view < this.parent.NF - 1)
+										this.parent.calc(1);
+								}
+								/* ==== Left arrow ==== */
+								this.arL.onclick = this.arL.ondblclick = function() {
+									if (this.parent.view > 0)
+										this.parent.calc(-1);
+								}
+							}
+							/* //////////// ==== ImageFlow prototype ==== //////////// */
+							ImageFlow.prototype = {
+								/* ==== targets ==== */
+								calc: function(inc) {
+									if (inc) this.view += inc;
+									var tw = 0;
+									var lw = 0;
+									var o = this.diapos[this.view];
+									if (o && o.loaded) {
+										/* ---- reset ---- */
+										var ob = this.diapos[this.back];
+										if (ob && ob != o) {
+											ob.img.className = 'diapo';
+											ob.z1 = 1;
+										}
+										/* ---- update legend ---- */
+										this.title.replaceChild(document.createTextNode(o.title), this.title.firstChild);
+										this.legend.replaceChild(document.createTextNode(o.text), this.legend.firstChild);
+										/* ---- update hyperlink ---- */
+										if (o.url) {
+											o.img.className = 'diapo link';
+											window.status = 'hyperlink: ' + o.url;
+										} else {
+											o.img.className = 'diapo';
+											window.status = '';
+										}
+										/* ---- calculate target sizes & positions ---- */
+										o.w1 = Math.min(o.iw, this.wh * .5) * o.z1;
+										var x0 = o.x1 = (this.wh * .5) - (o.w1 * .5);
+										var x = x0 + o.w1 + this.bdw;
+										for (var i = this.view + 1, o; o = this.diapos[i]; i++) {
+											if (o.loaded) {
+												o.x1 = x;
+												o.w1 = (this.ht / o.r) * this.size;
+												x += o.w1 + this.bdw;
+												tw += o.w1 + this.bdw;
+											}
+										}
+										x = x0 - this.bdw;
+										for (var i = this.view - 1, o; o = this.diapos[i]; i--) {
+											if (o.loaded) {
+												o.w1 = (this.ht / o.r) * this.size;
+												o.x1 = x - o.w1;
+												x -= o.w1 + this.bdw;
+												tw += o.w1 + this.bdw;
+												lw += o.w1 + this.bdw;
+											}
+										}
+										/* ---- move scrollbar ---- */
+										if (!this.scr && tw) {
+											var r = (this.ws - this.alw - this.arw - this.bw) / tw;
+											this.bar.style.left = Math.round(this.alw + lw * r) + 'px';
+										}
+										/* ---- save preview view ---- */
+										this.back = this.view;
+									}
+								},
+								/* ==== mousewheel scrolling ==== */
+								scroll: function(sc) {
+									if (sc < 0) {
+										if (this.view < this.NF - 1) this.calc(1);
+									} else {
+										if (this.view > 0) this.calc(-1);
+									}
+								},
+								/* ==== resize  ==== */
+								resize: function() {
+									this.wh = this.oc.clientWidth;
+									this.ht = this.oc.clientHeight;
+									this.ws = this.scrollbar.offsetWidth;
+									this.calc();
+									this.run(true);
+								},
+								/* ==== move all images  ==== */
+								run: function(res) {
+									var i = this.NF;
+									while (i--) this.diapos[i].move(res);
+								}
+							}
+							/* //////////// ==== Diapo Constructor ==== //////////// */
+							Diapo = function(parent, N, src, title, text, url, target) {
+								this.parent = parent;
+								this.loaded = false;
+								this.title = title;
+								this.text = text;
+								this.url = url;
+								this.target = target;
+								this.N = N;
+								this.img = document.createElement('img');
+								this.img.src = src;
+								this.img.parent = this;
+								this.img.className = 'diapo';
+								this.x0 = this.parent.oc.clientWidth;
+								this.x1 = this.x0;
+								this.w0 = 0;
+								this.w1 = 0;
+								this.z1 = 1;
+								this.img.parent = this;
+								this.img.onclick = function() {
+									this.parent.click();
+								}
+								this.parent.oc.appendChild(this.img);
+								/* ---- display external link ---- */
+								if (url) {
+									this.img.onmouseover = function() {
+										this.className = 'diapo link';
+									}
+									this.img.onmouseout = function() {
+										this.className = 'diapo';
+									}
+								}
+							}
+							/* //////////// ==== Diapo prototype ==== //////////// */
+							Diapo.prototype = {
+								/* ==== HTML rendering ==== */
+								move: function(res) {
+									if (this.loaded) {
+										var sx = this.x1 - this.x0;
+										var sw = this.w1 - this.w0;
+										if (Math.abs(sx) > 2 || Math.abs(sw) > 2 || res) {
+											/* ---- paint only when moving ---- */
+											this.x0 += sx * .1;
+											this.w0 += sw * .1;
+											if (this.x0 < this.parent.wh && this.x0 + this.w0 > 0) {
+												/* ---- paint only visible images ---- */
+												this.visible = true;
+												var o = this.img.style;
+												var h = this.w0 * this.r;
+												/* ---- diapo ---- */
+												o.left = Math.round(this.x0) + 'px';
+												o.bottom = Math.floor(this.parent.ht * .25) + 'px';
+												o.width = Math.round(this.w0) + 'px';
+												o.height = Math.round(h) + 'px';
+												/* ---- reflexion ---- */
+												if (this.flx) {
+													var o = this.flx.style;
+													o.left = Math.round(this.x0) + 'px';
+													o.top = Math.ceil(this.parent.ht * .75 + 1) + 'px';
+													o.width = Math.round(this.w0) + 'px';
+													o.height = Math.round(h) + 'px';
+												}
+											} else {
+												/* ---- disable invisible images ---- */
+												if (this.visible) {
+													this.visible = false;
+													this.img.style.width = '0px';
+													if (this.flx) this.flx.style.width = '0px';
+												}
+											}
+										}
+									} else {
+										/* ==== image onload ==== */
+										if (this.img.complete && this.img.width) {
+											/* ---- get size image ---- */
+											this.iw = this.img.width;
+											this.ih = this.img.height;
+											this.r = this.ih / this.iw;
+											this.loaded = true;
+											/* ---- create reflexion ---- */
+											this.flx = createReflexion(this.parent.oc, this.img);
+											if (this.parent.view < 0) this.parent.view = this.N;
+											this.parent.calc();
+										}
+									}
+								},
+								/* ==== diapo onclick ==== */
+								click: function() {
+									if (this.parent.view == this.N) {
+										/* ---- click on zoomed diapo ---- */
+										if (this.url) {
+											/* ---- open hyperlink ---- */
+											window.open(this.url, this.target);
+										} else {
+											/* ---- zoom in/out ---- */
+											this.z1 = this.z1 == 1 ? this.parent.zoom : 1;
+											this.parent.calc();
+										}
+									} else {
+										/* ---- select diapo ---- */
+										this.parent.view = this.N;
+										this.parent.calc();
+									}
+									return false;
+								}
+							}
+							/* //////////// ==== public methods ==== //////////// */
+							return {
+								/* ==== initialize script ==== */
+								create: function(div, size, zoom, border) {
+									/* ---- instanciate imageFlow ---- */
+									var load = function() {
+										var loaded = false;
+										var i = instances.length;
+										while (i--)
+											if (instances[i].oCont == div) loaded = true;
+										if (!loaded) {
+											/* ---- push new imageFlow instance ---- */
+											instances.push(
+												new ImageFlow(div, size, zoom, border)
+											);
+											/* ---- init script (once) ---- */
+											if (!imf.initialized) {
+												imf.initialized = true;
+												/* ---- window resize event ---- */
+												addEvent(window, 'resize', function() {
+													var i = instances.length;
+													while (i--) instances[i].resize();
+												});
+												/* ---- stop drag N drop ---- */
+												addEvent(document.getElementById(div), 'mouseout', function(e) {
+													if (!e) e = window.event;
+													var tg = e.relatedTarget || e.toElement;
+													if (tg && tg.tagName == 'HTML') {
+														var i = instances.length;
+														while (i--) instances[i].oc.onmousemove = null;
+													}
+													return false;
+												});
+												/* ---- set interval loop ---- */
+												setInterval(function() {
+													var i = instances.length;
+													while (i--) instances[i].run();
+												}, 16);
+											}
+										}
+									}
+									/* ---- window onload event ---- */
+									addEvent(window, 'load', function() {
+										load();
+									});
+								}
+							}
+						}();
+						
+						/* ==== create imageFlow ==== */
+						//          div ID    , size, zoom, border
+						imf.create("imageFlow", 0.15, 1.5, 10);
+					}
+				},
+				mounted() {
+					this.picList = [];
+					let flag = window.location.href.substring(window.location.href.indexOf('?p=')+3);
+					
+					this.picList = this[flag];
+					this.cc();
+				},
+			})
+		</script>
+	</body>
+</html>
